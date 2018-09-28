@@ -4,6 +4,8 @@ Fareya Ikram and Mariana Pachon
 
 The idea of this project is to create a collaborative social media based music production web application. Our goal is to make music making accessible to everyone, by offering a straight forward and easy to learn platform where users can create without the significant learning curve that some advanced music production softwares might have. This platform gives the opportunity to many creative minds to come together and create a single piece, and it also allows people to start their own songs.Moreover, it builds a sense of community around the creation of free music.
 
+See the invision prototype for the UI and database here: https://projects.invisionapp.com/freehand/document/PixAJsoQF
+
 # Functionalities
 - A user can login or register to the application:
 ![login](login.png)
@@ -19,7 +21,10 @@ The idea of this project is to create a collaborative social media based music p
 - Once the user is satisfied with the creation, they can save their new track. This will now appear in all the other user's home page, and they can contribute.
 - In the case where the user wants to **contribute** to a song, a similar screen pops up and shows the same sequencer. The only difference in this case is that they cannot change the tempo, key or title of the song. 
 ![contributor](contributor.png)
-- See the actual invision prototype here: https://projects.invisionapp.com/freehand/document/PixAJsoQF
+
+- After a user is done with their track, they click the 'save this' button. The track is then saved as a midi file and the path to it is stored in the database. 
+- When the big play button is clicked, the consecutive midi files are all played.
+- When one of the smaller play buttons is clicked, that specific midi file is played.
 
 # Other similar ideas and how ours is different
 - https://github.com/eacoeytaux/cs4241-fp
@@ -44,26 +49,33 @@ The idea of this project is to create a collaborative social media based music p
 	8 	| mariana pachon | mpp | mpp@gmail.com
 	4	| fareya ikram	| fi | fi@gmail.comSection 1: Aminonet
 
--**Songs:**
+- **Songs:**
+
 	sid | crnid | type | skey | stempo | stitle
 	--- | ----- | ----- | ---- | ------ | ----------
 	5   | 8   | wind | (some key) | (some tempo) | (some song)
+
 	- `sid`: song id. Each song will have a unique id
 	- `crnid`:contributor id that matches up with user ids
 	- `type`:beat, bass, strings, synth or wind.
 	- `tempo`:song tempo
 	- `key`: song key
 	- `title`:song title
+
 - **Tracks:**
 
- 	sid (song id) | conid | tracknumber | midi 
-	------- | ---------------- | ---------- | ---------
-	 6 | 8 | 1 | path to the midi file location
+ 	sid (song id) | conid | tracknumber | tempo | key | midi
+	------- | ---------------- | ---------- | --------- | ---------- | ---------
+	 6 | 8 | 1 | 100 | g | /midiFiles/song6/track1
 
- 	- `sid`: song id. All contributions to the same song will have the same `sid`
+ 	- `songid`: song id. All contributions to the same song will have the same `sid`
  	- `conid`: contributor unique id
  	- `tracknumber`: position in the song where this specific track goes. If this value is 1, then the original creator of the song is the user with the `conid` of this row.
- 	- `midi`: track to the midi file that is stored somwhere else
+ 	- `tempo`: tempo of the song in beats per minute
+ 	- `key`: key of the song
+ 	- `midi`: track to the midi file that is stored somewhere else
+
+ ![database](database.png) 
 
 # Questions
 - Is our idea doable in 2 weeks?
@@ -71,3 +83,4 @@ The idea of this project is to create a collaborative social media based music p
 - Does the matrix creation seem too challenging? Should we maybe not give the option to change the tempo and key (this would reduce the amount of files), and maybe just give the option of having a minor and major scale?
 - Is storing the path to the midi file a good idea, or would retrieving the actual file make everything really slow?
 - Would you recommend a different structure for the tables, or are we on the right track?
+- Would you recommend playing one file after the next when the big play button is clicked or should we create a large file that gets modified each time a contribution is added?
