@@ -19,7 +19,7 @@ The idea of this project is to create a collaborative social media based music p
 - Once the user is satisfied with the creation, they can save their new track. This will now appear in all the other user's home page, and they can contribute.
 - In the case where the user wants to **contribute** to a song, a similar screen pops up and shows the same sequencer. The only difference in this case is that they cannot change the tempo, key or title of the song. 
 ![contributor](contributor.png)
-- See the actual invision prototype ![here](https://projects.invisionapp.com/freehand/document/PixAJsoQF).
+- See the actual invision prototype here: https://projects.invisionapp.com/freehand/document/PixAJsoQF
 
 # Other similar ideas and how ours is different
 - https://github.com/eacoeytaux/cs4241-fp
