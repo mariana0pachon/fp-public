@@ -68,12 +68,12 @@ See the invision prototype for the UI and database here: https://projects.invisi
 	------- | ---------------- | ---------- | --------- | ---------- | ---------
 	 6 | 8 | 1 | 100 | g | /midiFiles/song6/track1
 
- 	- `songid`: song id. All contributions to the same song will have the same `sid`
+ 	- `sid`: song id. All contributions to the same song will have the same `sid`
  	- `conid`: contributor unique id
  	- `tracknumber`: position in the song where this specific track goes. If this value is 1, then the original creator of the song is the user with the `conid` of this row.
  	- `tempo`: tempo of the song in beats per minute
  	- `key`: key of the song
- 	- `midi`: track to the midi file that is stored somewhere else
+ 	- `midi`: path to the midi file that is stored somewhere else
 
  ![database](database.png) 
 
