@@ -22,7 +22,7 @@ See the invision prototype for the UI and database here: https://projects.invisi
 - In the case where the user wants to **contribute** to a song, a similar screen pops up and shows the same sequencer. The only difference in this case is that they cannot change the tempo, key or title of the song. 
 ![contributor](contributor.png)
 
-- After a user is done with their track, they click the 'save this' button. The track is then saved as a midi file and the path to it is stored in the database. 
+- After a user is done with their track, they click the 'save' button. The track is then saved as a midi file and the path to it is stored in the database. 
 - When the big play button is clicked, the consecutive midi files are all played.
 - When one of the smaller play buttons is clicked, that specific midi file is played.
 
