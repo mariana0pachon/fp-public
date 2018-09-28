@@ -1,66 +1,42 @@
-# cs4241-FinalProject
+### Collaborative music maker social media
+- A user picks a set of sounds and creates a clip of maximum 4 bars (Option to do 1, 2, or 4)
+- A following user gets access to the same sounds as well as any other additional ones they might want but the key and tempo is already set by the initial user. They can add next to it for a maximum of 4 bars. They also have the option to duplicate any of the previous tracks and modify to personalize.
+- All of the clips are created by a sequencer. Therefore, there is a limited amount of sounds and a timer that goes through and the users can pencil in the places where there would be a sound.
+- Any duplicated clip gets the name of the new owner and gets added to the end of the song.
+While a user is adding to the song, they have the option to start the song's previous 4 bars and go into their creation or to start the song from the beginning and go into their creation
+- Each initial user gives their song a tag for: type, key, tempo and topic of the song. This makes it easier for a user to find songs that they can collaborate in that are interesting to them.
+- Each initial user has the right to delete any new clips that were added to their song as long as they give a valid justification for it. ? Maybe?
+- Each user has a username, password, initiations, collaborations, reactions to certain clips (and followers?)
+- Each clip has: music content, reactions from other users
 
-For your final project, you'll implement a course project that exhibits your mastery of the course materials. 
-This project gives you an opportunity to be creative and to pursue individual research and learning.
+### Other similar ideas and how ours is different
+- https://github.com/eacoeytaux/cs4241-fp
+	- It is not collaborative
+	- You can only use the pentatonic scale
+- https://www.kompoz.com/music/
+	- You cannot make the song on the platform, an external software such as Logic or Ableton Live have to be used to create the song and then it gets uploaded to the platform
+- https://www.bandhub.com/
+	- It focuses on audio , recording on top of other people’s sounds. Our app will only support MIDI and creation on the platform. 
 
-## General description
+### Technologies we plan to use 
+- Frontend: React
+- Server: Express
+- Database: PostgreSQL + some way of storing audio/midi information (Firebase?)
 
-Your project should consist of a complete Web application. 
-The site must exhibit facets of the three main sections of the course material:
+### Tables
+- **Users:**
+| id        | name           | username   | email |
+|: -------------: |:-------------:|: -----:|:----:|
 
-- Static Web page content and design. You should have a project that is well-designed, easily navigable, and exhibits good human-computer interaction.
-- Dynamic behavior implemented with JavaScript and possibly other JavaScript librarires.
-- Server-side programming. Typically this will take the form of some sort of persistent data and possibly server-side computation.
+- **Tracks:**
+|sid (song id)| conid (contributor id) | tracknumber (position in the song where this specific track goes) |midi (contains the midi sound recording)|
+|: -------------: |:-------------:|: --------:|:----:|
 
-Additionally, you should incorporate features that you independently research, design, and implement for your project.
+	- In this table, we will differentiate the original creators from the contributors using the `tracknumber`. If the `tracknumber` is 1, then we look at the `conid` and match that with the corresponding user in the users table
 
-## Project ideation
-
-Excellent projects serve someone/some group: define your users and stakeholders. 
-Don't just create a webapp with a pile of features.
-I encourage you to identify projects that will have impact.
-
-Create something useful for a cause or hobby you care about; something that will help you grow as a student.
-Also see our [hall of fame](https://cs4241-18a.github.io/fame/), with notable projects from prior offerings of the course.
-
-## Logistics
-
-### Team size
-Students are encouraged to work in teams of 1-4 students for the project. 
-This will allow you to build a good project without expending an excessive amount of effort. 
-While I would expect a team of four students to produce a project with more features, I expect a single person project to exhibit all of the required facets described above.
-
-### Deliverables
-
-__Proposal:__ 
-Provide an outline of your project direction and the names of the team members. 
-The outline should have enough detail so that staff can determine if it meets the minimum expectations, or if it goes too far to be reasonable by the deadline.
-This file must be named proposal.md so we can find it.
-Submit a PR to turn it in.
-
-There are no other scheduled checkpoints for your project. 
-You must be done in time to present before the final project demo day. 
-
-#### Turning in Your Outline / Project
-
-**NOTE: code is due before the project presentation day due to the end of term / grading schedule constraints**
-Submit a second PR on the final project repo to turn in your app and code.
-
-Deploy your app, in the form of a webpage, to Heroku or some other service.
-Folks on the same team do not need to post the same webpage, but must instead clearly state who is on the team in their proposal.
-(Staff will use the proposal to build the grading sheet.)
-
-## Final Presentation
-
-Presentations will occur during the final week of class.
-
-As for the presentations, we will take over a different room on WPI's campus, with tables.
-You'll set up and demo to folks who stop by.
-You'll demo to staff as part of your grade.
-
-## FAQs
-
-- **Can I open-source my project?** You may open source your project after the class ends. 
-I encourage it. While other course code should be kept hidden, this is a case where others can and should learn and draw inspiration from everyone else.
-
-- **Can I use XYZ framework?** You can use any web-based frameworks or tools available.
+### Questions we have
+- Is our idea doable in 2 weeks?
+- Is our idea innovative enough for the scope of this project?
+- If neither of us have experience using Firebase, would it be realistic to try to use Firebase to be able to store audio and have a “serverless” application, or is this too complicated?
+- Follow up: what could we use to store the midi that is made on the platform?
+- Would you recommend a different structure for the tables, or are we on the right track?
