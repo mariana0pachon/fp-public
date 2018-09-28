@@ -47,8 +47,8 @@ The idea of this project is to create a collaborative social media based music p
 -**Songs:**
 	sid|crnid|type| skey|stempo| stitle
 	---------------------------------
-	5  | 8   | wind| | |
- 	- `sid`: song id. Each song will have a unique id
+	5  | 8   | wind| (some key)|(some tempo)| (some song)
+	- `sid`: song id. Each song will have a unique id
 	- `crnid`: contributor id that matches up with user ids
 	-`type`:   beat, bass, strings, synth or wind.
 	-`tempo`: song tempo
