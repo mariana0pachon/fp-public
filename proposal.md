@@ -29,14 +29,14 @@ While a user is adding to the song, they have the option to start the song's pre
 - **Users:**
 
 id | name | username      | email
-------- | ---------------- | ---------- | ---------:
+------- | ---------------- | ---------- | ---------
 8  | lane harisson | lharisson | lharisson@gmail.com
 
 - **Tracks:**
 
-|sid (song id)| conid (contributor id) | tracknumber (position in the song where this specific track goes) |midi (contains the midi sound recording)|
-|: -------------: |:-------------:|: --------:|:----:|
-|6|8|1|<store midi somehow>
+ sid (song id) | conid (contributor id) | tracknumber (position in the song where this specific track goes) |midi (contains the midi sound recording)
+------- | ---------------- | ---------- | ---------
+ 6 | 8 | 1 | store midi somehow
 
 - In this table, we will differentiate the original creators from the contributors using the `tracknumber`. If the `tracknumber` is 1, then we look at the `conid` and match that with the corresponding user in the users table
 
