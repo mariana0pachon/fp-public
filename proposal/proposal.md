@@ -2,7 +2,7 @@ Collaborative Music Maker
 ===
 Fareya Ikram and Mariana Pachon
 
-The idea of this project is to create a collaborative social media based music production web application. Our goal is to make music making accessible to everyone, by offering a straight forward and easy to learn platform where users can create without the significant learning curve that some advanced music production softwares might cause. This platform gives the opportunity to many creative minds to come together and create a single piece, and it also allows people to start their own songs.
+The idea of this project is to create a collaborative social media based music production web application. Our goal is to make music making accessible to everyone, by offering a straight forward and easy to learn platform where users can create without the significant learning curve that some advanced music production softwares might have. This platform gives the opportunity to many creative minds to come together and create a single piece, and it also allows people to start their own songs.Moreover, it builds a sense of community around the creation of free music.
 
 # Functionalities
 - A user can login or register to the application:
@@ -42,8 +42,18 @@ The idea of this project is to create a collaborative social media based music p
 	id | name | username      | email
 	------- | ---------------- | ---------- | ---------
 	8 	| mariana pachon | mpp | mpp@gmail.com
-	4	| fareya ikram	| fi | fi@gmail.com
+	4	| fareya ikram	| fi | fi@gmail.comSection 1: Aminonet
 
+-**Songs:**
+	sid|crnid|type| skey|stempo| stitle
+	---------------------------------
+	5  | 8   | wind| | |
+ 	- `sid`: song id. Each song will have a unique id
+	- `crnid`: contributor id that matches up with user ids
+	-`type`:   beat, bass, strings, synth or wind.
+	-`tempo`: song tempo
+	-`key`: song key
+	-`title`:song titel
 - **Tracks:**
 
  	sid (song id) | conid | tracknumber | midi 
