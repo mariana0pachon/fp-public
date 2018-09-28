@@ -47,7 +47,7 @@ See the invision prototype for the UI and database here: https://projects.invisi
 	id | name | username      | email
 	------- | ---------------- | ---------- | ---------
 	8 	| mariana pachon | mpp | mpp@gmail.com
-	4	| fareya ikram	| fi | fi@gmail.comSection 1: Aminonet
+	4	| fareya ikram	| fi | fi@gmail.com
 
 - **Songs:**
 
