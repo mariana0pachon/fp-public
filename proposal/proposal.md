@@ -39,21 +39,21 @@ The idea of this project is to create a collaborative social media based music p
 # Database Tables
 - **Users:**
 
-id | name | username      | email
-------- | ---------------- | ---------- | ---------
-8 	| mariana pachon | mpp | mpp@gmail.com
-4	| fareya ikram	| fi | fi@gmail.com
+	id | name | username      | email
+	------- | ---------------- | ---------- | ---------
+	8 	| mariana pachon | mpp | mpp@gmail.com
+	4	| fareya ikram	| fi | fi@gmail.com
 
 - **Tracks:**
 
- sid (song id) | conid | tracknumber | midi 
-------- | ---------------- | ---------- | ---------
- 6 | 8 | 1 | path to the midi file location
+ 	sid (song id) | conid | tracknumber | midi 
+	------- | ---------------- | ---------- | ---------
+	 6 | 8 | 1 | path to the midi file location
 
- - `sid`: song id. All contributions to the same song will have the same `sid`
- - `conid`: contributor unique id
- - `tracknumber`: position in the song where this specific track goes. If this value is 1, then the original creator of the song is the user with the `conid` of this row.
- - `midi`: track to the midi file that is stored somwhere else
+ 	- `sid`: song id. All contributions to the same song will have the same `sid`
+ 	- `conid`: contributor unique id
+ 	- `tracknumber`: position in the song where this specific track goes. If this value is 1, then the original creator of the song is the user with the `conid` of this row.
+ 	- `midi`: track to the midi file that is stored somwhere else
 
 # Questions
 - Is our idea doable in 2 weeks?
