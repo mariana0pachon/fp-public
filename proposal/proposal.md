@@ -49,19 +49,6 @@ See the invision prototype for the UI and database here: https://projects.invisi
 	8 	| mariana pachon | mpp | mpp@gmail.com
 	4	| fareya ikram	| fi | fi@gmail.com
 
-- **Songs:**
-
-	sid | crnid | type | skey | stempo | stitle
-	--- | ----- | ----- | ---- | ------ | ----------
-	5   | 8   | wind | (some key) | (some tempo) | (some song)
-
-	- `sid`: song id. Each song will have a unique id
-	- `crnid`:contributor id that matches up with user ids
-	- `type`:beat, bass, strings, synth or wind.
-	- `tempo`:song tempo
-	- `key`: song key
-	- `title`:song title
-
 - **Tracks:**
 
  	sid (song id) | conid | tracknumber | tempo | key | midi
