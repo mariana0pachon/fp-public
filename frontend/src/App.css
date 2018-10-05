@@ -1,0 +1,11 @@
+.block {
+  width: 5em;
+  height: 6em;
+  border: solid black 0.001em;
+  margin: 0.1em;
+}
+
+.instrument-row {
+  display:flex;
+  flex-wrap: nowrap;
+}
