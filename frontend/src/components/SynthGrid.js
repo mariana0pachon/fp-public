@@ -20,18 +20,40 @@ class SynthGrid extends Component {
     }
   }
 
-  playC(i,j) {
-    this.midiSounds.playChordNow(3, [60], 2.5);
+  playNote(i,j) {
+  	let note;
+  	switch(i){
+  		case 0:
+  			note=60;
+  			break;
+  		case 1:
+  			note=62;
+  			break;
+  		case 2:
+  			note=64;
+  			break;
+  		case 3:
+  			note=65;
+  			break;
+   		case 4:
+  			note=67;
+  			break;
+  		case 5:
+  			note=69;
+  			break;
+  		case 6:
+  			note=71;
+  			break;
+  		case 7:
+  			note=72;
+  			break;
+  	}
+
+    this.midiSounds.playChordNow(3, [note], 2.5);
 	var temp = this.state.matrix;
-	  console.log(temp[i][j]);
 	temp[i][j] = !temp[i][j];
 
 	this.setState({matrix : temp});
-	  console.log(temp[i][j]);
-  }
-
-   playD() {
-    this.midiSounds.playChordNow(3, [62], 2.5);
   }
 
 	createTable = () => {
@@ -41,7 +63,7 @@ class SynthGrid extends Component {
 			let children = []
 			// Inner loop to make td elements
 			for (let j = 0; j < 16; j++){
-				children.push(<td value={this.state.matrix[i][j]} onClick={()=>this.playC(i,j)}></td>)
+				children.push(<td value={this.state.matrix[i][j]} onClick={()=>this.playNote(i,j)}></td>)
 			}
 			table.push(<tr>{children}</tr>)
 		}
