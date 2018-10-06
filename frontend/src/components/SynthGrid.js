@@ -6,12 +6,28 @@ class SynthGrid extends Component {
   constructor(){
     super();
     this.state = {
+		matrix : [
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+		]
 
     }
   }
 
-  playC() {
+  playC(i,j) {
     this.midiSounds.playChordNow(3, [60], 2.5);
+	var temp = this.state.matrix;
+	  console.log(temp[i][j]);
+	temp[i][j] = !temp[i][j];
+
+	this.setState({matrix : temp});
+	  console.log(temp[i][j]);
   }
 
    playD() {
@@ -25,7 +41,7 @@ class SynthGrid extends Component {
 			let children = []
 			// Inner loop to make td elements
 			for (let j = 0; j < 16; j++){
-				children.push(<td onClick={this.playC.bind(this)}></td>)
+				children.push(<td value={this.state.matrix[i][j]} onClick={()=>this.playC(i,j)}></td>)
 			}
 			table.push(<tr>{children}</tr>)
 		}
