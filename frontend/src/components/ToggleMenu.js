@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 class ToggleMenu extends Component {
     constructor(props) {
         super(props);
@@ -27,6 +28,8 @@ class ToggleMenu extends Component {
         );
     }
 }
+
+
 // //const Menu = ({alignment, children}) => (
 //     <div className="menu">
 //         <div className={alignment}>{children}</div>
