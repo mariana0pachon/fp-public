@@ -15,21 +15,28 @@ class DrumsGrid extends Component {
  		this.props.playDrums(i,j);
  	}
 
-	createTable () {
-		let table = []
-		let key=0;
-		// Outer loop to create rows
-		for (let i = 0; i < 4; i++){
-			let children = []
-			// Inner loop to make td elements
-			for (let j = 0; j < 16; j++){
-				children.push(<td key={key} value={this.props.drumsMatrix[i][j]} onClick={() => this.playDrums(i,j)}></td>)
-				key++;
-			}
-			table.push(<tr key={key}>{children}</tr>)
-		}
-		return table;
-	}
+ 	createTable () {
+ 		let table = []
+ 		let key=0;
+ 		// Outer loop to create rows
+ 		for (let i = 0; i < 4; i++){
+ 			let children = []
+ 			// Inner loop to make td elements
+ 			for (let j = 0; j < 16; j++){
+
+ 				children.push(<td style={this.props.drumsMatrix[i][j] ? 
+ 											{background : 'red'} 
+ 											: 
+ 											{background : 'transparent'}} 
+ 											key={key} value={this.props.drumsMatrix[i][j]} onClick={()=>this.playDrums(i,j)}>
+ 							      <div className='filledcircle'></div>
+ 							  </td>)
+ 				key++;
+ 			}
+ 			table.push(<tr key={key}>{children}</tr>)
+ 		}
+ 		return table;
+ 	}
 
   render() {
     return (

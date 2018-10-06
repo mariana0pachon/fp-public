@@ -5,6 +5,7 @@ import MIDISounds from 'midi-sounds-react';
 import SynthGrid from './components/SynthGrid';
 import DrumsGrid from './components/DrumsGrid';
 import BassGrid from './components/BassGrid';
+import VerticalLine from './components/VerticalLine';
 
 class App extends Component {
 
@@ -199,11 +200,15 @@ class App extends Component {
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={this.playLoop.bind(this)}>Loop</button>
         <p>Synth</p>
+        <VerticalLine/>
         <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
+        
         <p>Drums</p>
         <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
         <p>Bass</p>
         <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
+
+    		
       </div>
     );
   }
