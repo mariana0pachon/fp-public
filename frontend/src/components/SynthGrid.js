@@ -3,60 +3,19 @@ import MIDISounds from 'midi-sounds-react';
 
 class SynthGrid extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-		matrix : [
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-		]
 
     }
+
   }
+ 	
+ 	playSynth(i, j) {
+ 		this.props.playSynth(i,j);
+ 	}
 
-  playNote(i,j) {
-  	let note;
-  	switch(i){
-  		case 0:
-  			note=60;
-  			break;
-  		case 1:
-  			note=62;
-  			break;
-  		case 2:
-  			note=64;
-  			break;
-  		case 3:
-  			note=65;
-  			break;
-   		case 4:
-  			note=67;
-  			break;
-  		case 5:
-  			note=69;
-  			break;
-  		case 6:
-  			note=71;
-  			break;
-  		case 7:
-  			note=72;
-  			break;
-  	}
-
-    this.midiSounds.playChordNow(3, [note], 2.5);
-	var temp = this.state.matrix;
-	temp[i][j] = !temp[i][j];
-
-	this.setState({matrix : temp});
-  }
-
-	createTable = () => {
+	createTable () {
 		let table = []
 		let key=0;
 		// Outer loop to create rows
@@ -64,7 +23,7 @@ class SynthGrid extends Component {
 			let children = []
 			// Inner loop to make td elements
 			for (let j = 0; j < 16; j++){
-				children.push(<td key={key} value={this.state.matrix[i][j]} onClick={()=>this.playNote(i,j)}></td>)
+				children.push(<td key={key} value={this.props.synthMatrix[i][j]} onClick={() => this.playSynth(i,j)}></td>)
 				key++;
 			}
 			table.push(<tr key={key}>{children}</tr>)
@@ -75,13 +34,13 @@ class SynthGrid extends Component {
   render() {
     return (
       <div>
-        <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
 
 		<table>
 			<tbody>
 				{this.createTable()}
 			</tbody>
 		</table>
+
       </div>
     );
   }
