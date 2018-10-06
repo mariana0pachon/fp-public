@@ -7,6 +7,7 @@ td {
   width: 6.25%;
   border: 3px solid #222;
   border-top-color: transparent;
+  background-color: transparent;
 }
 td::after {
   content: '';
@@ -25,4 +26,21 @@ tr:last-of-type td {
   border-bottom-color: transparent;
 }
 
+.line {
+	animation-iteration-count: infinite;
+	height: 10px;
+	background: grey;
+	top: 3em;
+	right: 0;
+	
+}
 
+
+@keyframes move{
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}

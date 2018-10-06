@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SynthGrid from './components/SynthGrid';
+import VerticalLine from './components/VerticalLine';
 
 class App extends Component {
 
@@ -14,7 +15,9 @@ class App extends Component {
   render() {
     return (
       <div>
+		<VerticalLine/>
         <SynthGrid />
+		<VerticalLine/>
       </div>
     );
   }
