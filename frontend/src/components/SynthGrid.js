@@ -36,7 +36,7 @@ class SynthGrid extends Component {
     return (
       <div>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
-       
+
 		<table>
 			{this.createTable()}
 		</table>
@@ -76,7 +76,7 @@ class SynthGrid extends Component {
           <div className='block' onClick={this.playD.bind(this)}></div>
           <div className='block' onClick={this.playD.bind(this)}></div>
         </div>
-      
+
       </div>
     );
   }
