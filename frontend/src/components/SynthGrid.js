@@ -82,47 +82,6 @@ class SynthGrid extends Component {
 				{this.createTable()}
 			</tbody>
 		</table>
-<<<<<<< HEAD
-        <div className='instrument-row'>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-          <div className='block' onClick={this.playC.bind(this)}></div>
-        </div>
-        <div className='instrument-row'>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-          <div className='block' onClick={this.playD.bind(this)}></div>
-        </div>
-
-=======
-      
->>>>>>> db2b3ac441bd89ee3ee37205df5aef3276864021
       </div>
     );
   }
