@@ -58,14 +58,16 @@ class SynthGrid extends Component {
 
 	createTable = () => {
 		let table = []
+		let key=0;
 		// Outer loop to create rows
 		for (let i = 0; i < 8; i++){
 			let children = []
 			// Inner loop to make td elements
 			for (let j = 0; j < 16; j++){
-				children.push(<td value={this.state.matrix[i][j]} onClick={()=>this.playNote(i,j)}></td>)
+				children.push(<td key={key} value={this.state.matrix[i][j]} onClick={()=>this.playNote(i,j)}></td>)
+				key++;
 			}
-			table.push(<tr>{children}</tr>)
+			table.push(<tr key={key}>{children}</tr>)
 		}
 		return table;
 	}
@@ -76,7 +78,9 @@ class SynthGrid extends Component {
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
        
 		<table>
-			{this.createTable()}
+			<tbody>
+				{this.createTable()}
+			</tbody>
 		</table>
       
       </div>
