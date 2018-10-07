@@ -12,6 +12,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      looping: false,
       currentGrid: '',
       drumsMatrix : [
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -45,8 +46,7 @@ class App extends Component {
       ],
     }
     this.song=[];
-    this.beats=[];
-    this.melody=[];
+    this.bpm=120;
   }
 
    playSynth=(i,j)=>  {
@@ -163,7 +163,7 @@ class App extends Component {
       let song=[];
 
       //synth
-     let synths=[130, [], 1/4];
+     let synths=[130, [], 2.5];
       if (this.state.synthMatrix[0][i]){synths[1].push(60)}
       if (this.state.synthMatrix[1][i]){synths[1].push(62)}
       if (this.state.synthMatrix[2][i]){synths[1].push(64)}
@@ -174,7 +174,7 @@ class App extends Component {
       if (this.state.synthMatrix[7][i]){synths[1].push(72)}
       //this.melody.push(synths);
 
-      let bajos=[20, [], 1/4];
+      let bajos=[20, [], 2.5];
        if (this.state.bassMatrix[0][i]){bajos[1].push(60)}
        if (this.state.bassMatrix[1][i]){bajos[1].push(62)}
        if (this.state.bassMatrix[2][i]){bajos[1].push(64)}
@@ -185,13 +185,14 @@ class App extends Component {
        if (this.state.bassMatrix[7][i]){bajos[1].push(72)}
       song.push(drums, [synths, bajos]);
 
-      this.beats[i]=song;
+      this.song[i]=song;
     }
   }
 
   playLoop(){
     this.loadSequence();
-    this.midiSounds.startPlayLoop(this.beats, 80, 1/16);
+    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/4);
+    this.setState({looping: true});
   }
 
   render() {
@@ -200,7 +201,11 @@ class App extends Component {
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={this.playLoop.bind(this)}>Loop</button>
         <p>Synth</p>
-        <VerticalLine/>
+        {
+          this.state.looping 
+          ? <VerticalLine bpm={this.bpm}/>
+          : null
+        }
         <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
         <p>Drums</p>
         <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>

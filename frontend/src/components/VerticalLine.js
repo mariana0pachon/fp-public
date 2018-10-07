@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 class VerticalLine extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-		time : 5
+    	// 16 * length in s of one beat in that bpm
+		time : 16*(60/this.props.bpm),
 
     }
   }
