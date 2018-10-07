@@ -195,11 +195,23 @@ class App extends Component {
     this.setState({looping: true});
   }
 
+  stopLoop(){
+    this.midiSounds.stopPlayLoop();
+    this.setState({looping: false});
+  }
+
+  componentDidMount(){
+    this.playLoop();
+  }
+
   render() {
+    
     return (
       <div>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
-        <button onClick={this.playLoop.bind(this)}>Loop</button>
+        <button onClick={()=>this.playLoop()}>Play Loop</button>
+        <button onClick={()=>this.stopLoop()}>Stop Loop</button>
+
         <p>Synth</p>
         {
           this.state.looping 
@@ -211,6 +223,7 @@ class App extends Component {
         <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
         <p>Bass</p>
         <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
+        {this.playLoop.bind(this)}
       </div>
     );
   }
