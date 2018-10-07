@@ -81,6 +81,7 @@ class App extends Component {
       var temp = this.state.synthMatrix;
       temp[i][j] = !temp[i][j];
       this.setState({synthMatrix : temp});
+      this.loadSequence();
   }
 
  playDrums=(i,j)=>  {
@@ -103,6 +104,7 @@ class App extends Component {
     var temp = this.state.drumsMatrix;
     temp[i][j] = !temp[i][j];
     this.setState({drumsMatrix : temp});
+    this.loadSequence();
   }
 
    playBass=(i,j)=>  {
@@ -137,9 +139,10 @@ class App extends Component {
       var temp = this.state.bassMatrix;
       temp[i][j] = !temp[i][j];
       this.setState({bassMatrix : temp});
+      this.loadSequence();
   }
 
-  playLoop(){
+  loadSequence() {
     for (var i=0;i<16;i++){
 
       //drums
@@ -184,14 +187,11 @@ class App extends Component {
 
       this.beats[i]=song;
     }
+  }
 
-    //this.song.push(this.beats);
-
-    console.log('this.beats', this.beats);
+  playLoop(){
+    this.loadSequence();
     this.midiSounds.startPlayLoop(this.beats, 80, 1/16);
-
-    //this.midiSounds.startPlayLoop(this.synthMelody, 120, 1/16);
-    console.log('this.synthMelody', this.synthMelody);
   }
 
   render() {
@@ -199,7 +199,6 @@ class App extends Component {
       <div>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={this.playLoop.bind(this)}>Loop</button>
-        <button>Stop Loop</button>
         <p>Synth</p>
         <VerticalLine/>
         <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
@@ -207,8 +206,6 @@ class App extends Component {
         <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
         <p>Bass</p>
         <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
-
-
       </div>
     );
   }
