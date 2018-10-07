@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import MIDISounds from 'midi-sounds-react';
-
+import ToggleMenu from './components/ToggleMenu';
 import SynthGrid from './components/SynthGrid';
 import DrumsGrid from './components/DrumsGrid';
 import BassGrid from './components/BassGrid';
@@ -205,16 +205,17 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div>
+        <ToggleMenu/>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={()=>this.playLoop()}>Play Loop</button>
         <button onClick={()=>this.stopLoop()}>Stop Loop</button>
 
         <p>Synth</p>
         {
-          this.state.looping 
+          this.state.looping
           ? <VerticalLine bpm={this.bpm}/>
           : null
         }
