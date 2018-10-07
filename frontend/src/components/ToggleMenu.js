@@ -12,10 +12,12 @@ class ToggleMenu extends Component {
 
     render() {
         return (
-          <nav class="header">
-            <button onClick={()=>this.changeGrid('bass')}>Bass</button>
-            <button onClick={()=>this.changeGrid('drums')}>Drums</button>
-            <button onClick={()=>this.changeGrid('synth')}>Synth</button>
+          <nav class="nav-extended">
+            <div class='tabs tabs-transparent'>
+                <p class='tab' onClick={()=>this.changeGrid('drums')}><a>drums</a></p>
+                <p class='tab' onClick={()=>this.changeGrid('synth')}><a>synth</a></p>
+                <p class='tab' onClick={()=>this.changeGrid('bass')}><a>bass</a></p>
+            </div>
           </nav>
         );
     }
@@ -23,8 +25,3 @@ class ToggleMenu extends Component {
 
 
 export default ToggleMenu;
-// //const Menu = ({alignment, children}) => (
-//     <div className="menu">
-//         <div className={alignment}>{children}</div>
-//     </div>
-// );

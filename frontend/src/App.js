@@ -99,8 +99,8 @@ class App extends Component {
       if (this.state.synthMatrix[5][i]){synths[1].push(64)}
       if (this.state.synthMatrix[6][i]){synths[1].push(62)}
       if (this.state.synthMatrix[7][i]){synths[1].push(60)}
-      //this.melody.push(synths);
 
+      // bass
       let bajos=[20, [], 2.5];
        if (this.state.bassMatrix[0][i]){bajos[1].push(72)}
        if (this.state.bassMatrix[1][i]){bajos[1].push(71)}
@@ -133,7 +133,6 @@ class App extends Component {
 
   changeGrid=(grid)=>{
     this.setState({currentGrid: grid});
-    console.log(this.state.currentGrid);
   }
 
   render() {
@@ -141,7 +140,7 @@ class App extends Component {
     return (
       <div>
         <ToggleMenu changeGrid={this.changeGrid}/>
-        <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
+        <MIDISounds ref={(ref) => (this.midiSounds = ref)}/>
         <button onClick={()=>this.playLoop()}>Play Loop</button>
         <button onClick={()=>this.stopLoop()}>Stop Loop</button>
         {
@@ -159,8 +158,6 @@ class App extends Component {
               (this.state.currentGrid === 'bass')
               ? <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
               : null
-            
-          
         }
         {this.playLoop.bind(this)}
       </div>
