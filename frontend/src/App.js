@@ -7,6 +7,7 @@ import DrumsGrid from './components/DrumsGrid';
 import BassGrid from './components/BassGrid';
 import VerticalLine from './components/VerticalLine';
 
+
 class App extends Component {
 
   constructor(){
@@ -135,11 +136,16 @@ class App extends Component {
     this.setState({currentGrid: grid});
   }
 
+
   render() {
 
     return (
       <div>
-        <ToggleMenu changeGrid={this.changeGrid}/>
+        <ToggleMenu 
+          drums={this.state.drumsMatrix} 
+          synth={this.state.synthMatrix}
+          bass={this.state.bassMatrix}
+          changeGrid={this.changeGrid}/>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)}/>
         <button onClick={()=>this.playLoop()}>Play Loop</button>
         <button onClick={()=>this.stopLoop()}>Stop Loop</button>
