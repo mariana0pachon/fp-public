@@ -22,7 +22,7 @@ class App extends Component {
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-      ],   
+      ],
       synthMatrix : [
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -32,7 +32,7 @@ class App extends Component {
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-      ], 
+      ],
       bassMatrix : [
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -42,7 +42,7 @@ class App extends Component {
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-      ],         
+      ],
     }
     this.song=[];
     this.beats=[];
@@ -158,7 +158,7 @@ class App extends Component {
         drums.push(19);
       }
       let song=[];
-      
+
       //synth
      let synths=[130, [], 1/4];
       if (this.state.synthMatrix[0][i]){synths[1].push(60)}
@@ -199,16 +199,16 @@ class App extends Component {
       <div>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={this.playLoop.bind(this)}>Loop</button>
+        <button>Stop Loop</button>
         <p>Synth</p>
         <VerticalLine/>
         <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
-        
         <p>Drums</p>
         <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
         <p>Bass</p>
         <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
 
-    		
+
       </div>
     );
   }
