@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 
 class ToggleMenu extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
+    changeGrid (grid){
+        this.props.changeGrid(grid);
+    }
+
     render() {
         return (
           <nav class="header">
-            <h1 id="title">Sequencer</h1>
-            <button onClick={this.state='bass'}>Bass</button>
-            <button onClick={()=>this.state='drums'}>Drums</button>
-            <button onClick={()=>this.state='synth'}>Synth</button>
+            <button onClick={()=>this.changeGrid('bass')}>Bass</button>
+            <button onClick={()=>this.changeGrid('drums')}>Drums</button>
+            <button onClick={()=>this.changeGrid('synth')}>Synth</button>
           </nav>
         );
     }

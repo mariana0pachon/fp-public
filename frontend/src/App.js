@@ -13,7 +13,7 @@ class App extends Component {
     super();
     this.state = {
       looping: false,
-      currentGrid: '',
+      currentGrid: 'drums',
       drumsMatrix : [
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -131,11 +131,16 @@ class App extends Component {
     this.playLoop();
   }
 
+  changeGrid=(grid)=>{
+    this.setState({currentGrid: grid});
+    console.log(this.state.currentGrid);
+  }
+
   render() {
 
     return (
       <div>
-        <ToggleMenu/>
+        <ToggleMenu changeGrid={this.changeGrid}/>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={()=>this.playLoop()}>Play Loop</button>
         <button onClick={()=>this.stopLoop()}>Stop Loop</button>
@@ -144,12 +149,19 @@ class App extends Component {
           ? <VerticalLine bpm={this.bpm}/>
           : null
         }
-        <p>Synth</p>
-        <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
-        <p>Drums</p>
-        <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
-        <p>Bass</p>
-        <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
+        {
+          (this.state.currentGrid === 'synth')
+          ? <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
+          : 
+            (this.state.currentGrid === 'drums')
+            ? <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
+            : 
+              (this.state.currentGrid === 'bass')
+              ? <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
+              : null
+            
+          
+        }
         {this.playLoop.bind(this)}
       </div>
     );
