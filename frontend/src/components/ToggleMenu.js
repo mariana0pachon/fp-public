@@ -5,9 +5,9 @@ class ToggleMenu extends Component {
         return (
           <nav class="header">
             <h1 id="title">Sequencer</h1>
-            <input type="button" value="Bass"></input>
-            <input type="button" value="Drums"></input>
-            <input type="button" value="Synth"></input>
+            <button onClick={this.state='bass'}>Bass</button>
+            <button onClick={()=>this.state='drums'}>Drums</button>
+            <button onClick={()=>this.state='synth'}>Synth</button>
           </nav>
         );
     }

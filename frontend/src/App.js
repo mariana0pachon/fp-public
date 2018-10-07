@@ -212,13 +212,12 @@ class App extends Component {
         <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />
         <button onClick={()=>this.playLoop()}>Play Loop</button>
         <button onClick={()=>this.stopLoop()}>Stop Loop</button>
-
-        <p>Synth</p>
         {
           this.state.looping
           ? <VerticalLine bpm={this.bpm}/>
           : null
         }
+        <p>Synth</p>
         <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
         <p>Drums</p>
         <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
