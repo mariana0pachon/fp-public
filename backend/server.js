@@ -13,31 +13,33 @@ const knex = require('knex');
 
 // connection to database
 const db = knex({
-	client: 'pg', 
+	client: 'pg',
 	connection: {
-		host:'127.0.0.1', 
-		user: 'mariana0pachon', 
-		password: '', 
-		database: 'sequencer'
+		host : 'ec2-54-235-252-137.compute-1.amazonaws.com',
+		user : 'bymtywrwitycyg',
+		password : '24eedcd18e2e1fcc9b8616e89d9ec6c9a1c2e44bea6bfe6e62a558d4bb55d308',
+		database : 'de4b8h0ha6mqqa',
+		ssl: true
 	}
-})
+});
 
 db.select('*').from('songs');
 
 
 // post request save a song in the database
 app.post('/save', (req, res) => {
-	const {title, drums, bass, synth} = req.body;
+	const {name, drums, synth, bass} = req.body;
 
 	db('songs').returning('*')
 		.insert({
-			title: title, 
+			name: name, 
 			drums: drums,
-			bass: bass, 
-			synth: synth,
+			synth: synth, 
+			bass: bass
 		})
-		.then(song => {
-			res.json(song[0])
+		.then(songs => {
+			console.log(songs[0]);
+			res.json(songs[0]);
 		})
 		// could be case where the song name already exists
 		.catch(err => res.status(400).json(err))
@@ -56,7 +58,7 @@ app.post('/load', (req, res) => {
 })
 
 
-
-app.listen(process.env.PORT || 3000, () => {
-	console.log(`app running on port ${process.env.PORT}`);
-})
+app.listen(3000, (res)=> {console.log("app running on port 3000")})
+// app.listen(process.env.PORT || 3000, () => {
+// 	console.log(`app running on port ${process.env.PORT}`);
+// })

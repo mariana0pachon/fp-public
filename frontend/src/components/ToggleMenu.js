@@ -37,8 +37,23 @@ class ToggleMenu extends Component {
 
     newSongSubmit(){
         this.cancel();
-        // code for post request to save the new song to the db
-        // should take in props with 3 matrices
+        fetch('http://localhost:3000/save', {
+            method: 'post', 
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify({
+                name: this.state.songTitle, 
+                drums: this.props.drums, 
+                synth: this.props.synth, 
+                bass: this.props.bass
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.name !== 'error')
+                alert("Your song '" + data.name + "' has been saved successfully!" );
+            else
+                alert ("A song named '" + this.props.songTitle +"'already exists. Please pick a new name.");
+        })
     }
 
     oldSongSubmit(){
