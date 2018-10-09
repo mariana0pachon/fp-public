@@ -32,6 +32,8 @@ tr:last-of-type td {
 	background: #228DFF;
 	top: 3em;
 	right: 0;
+  box-shadow: 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 200px #228DFF;
+
 }
 
 
@@ -51,6 +53,7 @@ tr:last-of-type td {
   position: fixed;
   top: 6%;
   left: 0;
+  bottom: 0;
   cursor: none;
   background: rgba(0,0,0,1);
   pointer-events: none;
