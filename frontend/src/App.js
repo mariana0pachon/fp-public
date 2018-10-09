@@ -74,21 +74,14 @@ class App extends Component {
   loadSequence() {
     for (var i=0;i<16;i++){
 
+      let song=[];
+
       //drums
       let drums=[];
-      if (this.state.drumsMatrix[0][i]){
-        drums.push(16);
-      }
-      if (this.state.drumsMatrix[1][i]){
-        drums.push(17);
-      }
-      if (this.state.drumsMatrix[2][i]){
-        drums.push(18);
-      }
-      if (this.state.drumsMatrix[3][i]){
-        drums.push(19);
-      }
-      let song=[];
+      if (this.state.drumsMatrix[0][i]){drums.push(16);}
+      if (this.state.drumsMatrix[1][i]){drums.push(17);}
+      if (this.state.drumsMatrix[2][i]){drums.push(18);}
+      if (this.state.drumsMatrix[3][i]){drums.push(19);}
 
       //synth
      let synths=[130, [], 2.5];
@@ -111,6 +104,8 @@ class App extends Component {
        if (this.state.bassMatrix[5][i]){bajos[1].push(64)}
        if (this.state.bassMatrix[6][i]){bajos[1].push(62)}
        if (this.state.bassMatrix[7][i]){bajos[1].push(60)}
+      
+      //push everything
       song.push(drums, [synths, bajos]);
 
       this.song[i]=song;
@@ -136,6 +131,15 @@ class App extends Component {
     this.setState({currentGrid: grid});
   }
 
+  loadSong=(drums, bass, synth)=> {
+    this.setState({
+      drumsMatrix: drums, 
+      bassMatrix: bass, 
+      synthMatrix: synth
+    });
+    this.loadSequence();
+  }
+
 
   render() {
 
@@ -145,6 +149,7 @@ class App extends Component {
           drums={this.state.drumsMatrix} 
           synth={this.state.synthMatrix}
           bass={this.state.bassMatrix}
+          loadSong={this.loadSong}
           changeGrid={this.changeGrid}/>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)}/>
         <button onClick={()=>this.playLoop()}>Play Loop</button>

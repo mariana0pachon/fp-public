@@ -48,13 +48,16 @@ app.post('/save', (req, res) => {
 
 // post request to load a song from the database
 app.post('/load', (req, res) => {
-	const {title} = req.body;
+	
+	const {name} = req.body;
 
 	db.select('*').from('songs')
-		.where('title', '=', title)
+		.where('name', '=', name)
 		.then(data => {
-			res.json(data);
+			if (data.length < 1){res.json('no such song')}
+			else res.json(data[0]);
 		})
+		.catch(err => res.status(400).json(err))
 })
 
 

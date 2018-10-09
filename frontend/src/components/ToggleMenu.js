@@ -58,8 +58,18 @@ class ToggleMenu extends Component {
 
     oldSongSubmit(){
         this.cancel();
-        // code for post request to show old song
-        // should take in prop of function that modifies state of 3 matrices in App.js
+        fetch('http://localhost:3000/load', {
+            method: 'post', 
+            headers: {'Content-Type': 'application/json'}, 
+            body: JSON.stringify({
+                name: this.state.songTitle, 
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data === 'no such song') {alert("'"+this.state.songTitle+"'"+" is not a saved song.")}
+            else {this.props.loadSong(data.drums, data.bass, data.synth)}
+        })
     }
 
     render() {
