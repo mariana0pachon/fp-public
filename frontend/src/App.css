@@ -5,7 +5,7 @@ table {
 }
 td {
   width: 6.25%;
-  border: 1px solid #222;
+  border: .5px solid grey;
   border-top-color: transparent;
   background-color: transparent;
 }
@@ -29,10 +29,9 @@ tr:last-of-type td {
 .line {
 	animation-iteration-count: infinite;
 	height: 10px;
-	background: grey;
+	background: #228DFF;
 	top: 3em;
 	right: 0;
-
 }
 
 
@@ -44,24 +43,15 @@ tr:last-of-type td {
 		width: 100%;
 	}
 }
-nav.header {
-    background-color: #000b4f;
-    color:white;
-}
-nav button {
-    font-family: 'Open Sans', sans-serif;
-    border: none;
-    background-color: transparent;
-    color: silver;
-    font-size: 20px;
-}
-nav input:hover {
-    color: white;
-}
-nav.header {
-    display: grid;
-    grid-template-columns:  210px 80px 115px 140px auto;
-    grid-template-rows: 70px;
-    grid-template-areas:
-        "title home-button join-button create-button .";
+
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 5%;
+  left: 0;
+  cursor: none;
+  background: rgba(0,0,0,1);
+  pointer-events: none;
 }

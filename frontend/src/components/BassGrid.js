@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MIDISounds from 'midi-sounds-react';
+import './Grids.css';
 
 class BassGrid extends Component {
 
@@ -24,16 +25,17 @@ class BassGrid extends Component {
  			// Inner loop to make td elements
  			for (let j = 0; j < 16; j++){
 
- 				children.push(<td style={this.props.bassMatrix[i][j] ? 
- 											{background : 'red'} 
- 											: 
- 											{background : 'transparent'}} 
- 											key={key} value={this.props.bassMatrix[i][j]} onClick={()=>this.playBass(i,j)}>
- 							      <div className='filledcircle'></div>
- 							  </td>)
+ 				children.push(<td 
+          className={this.props.bassMatrix[i][j] 
+          ? 'bass neon' 
+ 					: '' 
+ 					} 
+ 					key={key} value={this.props.bassMatrix[i][j]} onClick={()=>this.playBass(i,j)}>
+ 					<div className='filledcircle'></div>
+ 				</td>)
  				key++;
  			}
- 			table.push(<tr key={key}>{children}</tr>)
+      table.push(<tr key={key}>{children}</tr>)
  		}
  		return table;
  	}

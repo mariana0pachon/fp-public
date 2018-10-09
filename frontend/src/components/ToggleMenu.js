@@ -75,13 +75,13 @@ class ToggleMenu extends Component {
     render() {
         return (
             <div>
-                <nav className="nav-extended">
+                <nav className="nav-extended black">
                     <div className='tabs tabs-transparent'>
-                        <p className='tab' onClick={()=>this.changeGrid('drums')}><a>drums</a></p>
-                        <p className='tab' onClick={()=>this.changeGrid('synth')}><a>synth</a></p>
-                        <p className='tab' onClick={()=>this.changeGrid('bass')}><a>bass</a></p>
-                        <p className='tab' onClick={()=>this.saveSong()}><a>save</a></p>
-                        <p className='tab' onClick={()=>this.openSong()}><a>open</a></p>
+                        <p className='tab neon' onClick={()=>this.changeGrid('drums')}><a>drums</a></p>
+                        <p className='tab neon' onClick={()=>this.changeGrid('synth')}><a>synth</a></p>
+                        <p className='tab neon' onClick={()=>this.changeGrid('bass')}><a>bass</a></p>
+                        <p className='tab neon' onClick={()=>this.saveSong()}><a>save</a></p>
+                        <p className='tab neon' onClick={()=>this.openSong()}><a>open</a></p>
                     </div>
                 </nav>
                 {

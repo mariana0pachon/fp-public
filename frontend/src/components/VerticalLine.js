@@ -30,7 +30,7 @@ class VerticalLine extends Component {
 	};
     return (
       <div>
-		<div style={ style } class='line'></div>
+		<div style={ style } className='line'></div>
       </div>
     );
   }

@@ -1,24 +1,17 @@
-.popup {
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  background-color: rgba(0,0,0, 0.5);
+.drums {
+	background: #228DFF;
+	box-shadow: 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF;
 }
-.popup-inner {
-  position: absolute;
-  content: center;
-  left: 20em;
-  top: 10em;
-  margin: auto;
-  background: black;
-  padding: 1em;
-  border-radius: 25px;
+
+.bass {
+	background: #ebfdad;
+	box-shadow: 0 0 10px #ebfdad, 0 0 20px #ebfdad, 0 0 30px #ebfdad, 0 0 40px #ebfdad;
+
+}
+
+.synth {
+	background: #fb34d5;
+	box-shadow: 0 0 10px #fb34d5, 0 0 20px #fb34d5, 0 0 30px #fb34d5, 0 0 40px #fb34d5;
 }
 
 .neon:hover {

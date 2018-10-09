@@ -140,6 +140,23 @@ class App extends Component {
     this.loadSequence();
   }
 
+  clickEffect=()=>{
+    console.log('click function');
+    document.addEventListener("click", function(e){
+      var gradient = document.getElementById('cover');
+      gradient.style.background = 'none';
+      gradient.style.backgroundImage = 
+        "radial-gradient(ellipse closest-corner at " 
+        + e.clientX + "px " + e.clientY 
+        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 50%)";
+      setTimeout(function(){
+        gradient.style.background = 'rgba(0,0,0,1)';
+        gradient.style.backgroundImage = '';
+      }, 2000)
+    });
+
+  }
+
 
   render() {
 
@@ -152,24 +169,26 @@ class App extends Component {
           loadSong={this.loadSong}
           changeGrid={this.changeGrid}/>
         <MIDISounds ref={(ref) => (this.midiSounds = ref)}/>
-        <button onClick={()=>this.playLoop()}>Play Loop</button>
         <button onClick={()=>this.stopLoop()}>Stop Loop</button>
-        {
-          this.state.looping
-          ? <VerticalLine bpm={this.bpm}/>
-          : null
-        }
-        {
-          (this.state.currentGrid === 'synth')
-          ? <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
-          : 
-            (this.state.currentGrid === 'drums')
-            ? <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
+        <div onClick={this.clickEffect}>
+          {
+            this.state.looping
+            ? <VerticalLine bpm={this.bpm}/>
+            : null
+          }
+          {
+            (this.state.currentGrid === 'synth')
+            ? <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
             : 
-              (this.state.currentGrid === 'bass')
-              ? <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
-              : null
-        }
+              (this.state.currentGrid === 'drums')
+              ? <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
+              : 
+                (this.state.currentGrid === 'bass')
+                ? <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
+                : null
+          }
+        </div>
+        <div id='cover' className='gradient'></div>
         {this.playLoop.bind(this)}
       </div>
     );
