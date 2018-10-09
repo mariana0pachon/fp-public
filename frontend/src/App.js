@@ -150,6 +150,30 @@ class App extends Component {
         + e.clientX + "px " + e.clientY 
         + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 50%)";
       setTimeout(function(){
+      gradient.style.backgroundImage = 
+        "radial-gradient(ellipse closest-corner at " 
+        + e.clientX + "px " + e.clientY 
+        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 40%)";
+      }, 1000)
+      setTimeout(function(){
+      gradient.style.backgroundImage = 
+        "radial-gradient(ellipse closest-corner at " 
+        + e.clientX + "px " + e.clientY 
+        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 30%)";
+      }, 1200)
+      setTimeout(function(){
+      gradient.style.backgroundImage = 
+        "radial-gradient(ellipse closest-corner at " 
+        + e.clientX + "px " + e.clientY 
+        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 20%)";
+      }, 1500)
+      setTimeout(function(){
+      gradient.style.backgroundImage = 
+        "radial-gradient(ellipse closest-corner at " 
+        + e.clientX + "px " + e.clientY 
+        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 10%)";
+      }, 1800)
+      setTimeout(function(){
         gradient.style.background = 'rgba(0,0,0,1)';
         gradient.style.backgroundImage = '';
       }, 2000)
