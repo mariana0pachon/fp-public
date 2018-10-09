@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MIDISounds from 'midi-sounds-react';
 import './Grids.css';
 
 class BassGrid extends Component {

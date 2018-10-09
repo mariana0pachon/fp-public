@@ -28,7 +28,7 @@ tr:last-of-type td {
 
 .line {
 	animation-iteration-count: infinite;
-	height: 10px;
+	height: 2px;
 	background: #228DFF;
 	top: 3em;
 	right: 0;
@@ -47,9 +47,9 @@ tr:last-of-type td {
 
 .gradient {
   width: 100%;
-  height: 100%;
+  height: 90%;
   position: fixed;
-  top: 5%;
+  top: 6%;
   left: 0;
   cursor: none;
   background: rgba(0,0,0,1);

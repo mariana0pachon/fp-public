@@ -12,15 +12,6 @@ class VerticalLine extends Component {
   }
 
   render() {
-	  let keyframes = 
-		  `@-webkit-keyframes move {
-			  0% {
-				width: 0;
-			  }
-			  100% {
-				width: 100%;
-			  }
-		  }`;
 	let style = { 
 		animationName: 'move',
 		animationIterationCount: 'infinite',
