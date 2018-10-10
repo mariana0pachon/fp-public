@@ -36,40 +36,50 @@ class ToggleMenu extends Component {
     }
 
     newSongSubmit(){
-        this.cancel();
-        fetch('http://localhost:3000/save', {
-            method: 'post', 
-            headers: {'Content-Type': 'application/json'}, 
-            body: JSON.stringify({
-                name: this.state.songTitle, 
-                drums: this.props.drums, 
-                synth: this.props.synth, 
-                bass: this.props.bass
+        if (this.state.songTitle !== undefined && this.state.songTitle !== ''){
+            this.cancel()
+            fetch('http://localhost:3000/save', {
+                method: 'post', 
+                headers: {'Content-Type': 'application/json'}, 
+                body: JSON.stringify({
+                    name: this.state.songTitle, 
+                    drums: this.props.drums, 
+                    synth: this.props.synth, 
+                    bass: this.props.bass
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.name !== 'error')
-                alert("Your song '" + data.name + "' has been saved successfully!" );
-            else
-                alert ("A song named '" + this.props.songTitle +"'already exists. Please pick a new name.");
-        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.name !== 'error')
+                    alert("Your song '" + data.name + "' has been saved successfully!" );
+                else
+                    alert ("A song named '" + this.props.songTitle +"'already exists. Please pick a new name.");
+            })
+        }
+        else {
+            alert("Please enter a valid title for your new song.");
+        } 
     }
 
     oldSongSubmit(){
-        this.cancel();
-        fetch('http://localhost:3000/load', {
-            method: 'post', 
-            headers: {'Content-Type': 'application/json'}, 
-            body: JSON.stringify({
-                name: this.state.songTitle, 
+        if (this.state.songTitle !== undefined && this.state.songTitle !== ''){
+            this.cancel();
+            fetch('http://localhost:3000/load', {
+                method: 'post', 
+                headers: {'Content-Type': 'application/json'}, 
+                body: JSON.stringify({
+                    name: this.state.songTitle, 
+                })
             })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data === 'no such song') {alert("'"+this.state.songTitle+"'"+" is not a saved song.")}
-            else {this.props.loadSong(data.drums, data.bass, data.synth)}
-        })
+            .then(response => response.json())
+            .then(data => {
+                if (data === 'no such song') {alert("'"+this.state.songTitle+"'"+" is not a saved song.")}
+                else {this.props.loadSong(data.drums, data.bass, data.synth)}
+            })
+        }
+        else {
+            alert("Please enter a valid title for the song you wish to listen to.");
+        } 
     }
 
     render() {
@@ -93,9 +103,9 @@ class ToggleMenu extends Component {
                                     <Button onClick={()=>this.cancel()} floating large className='red' waves='light' icon='delete' />
                                     {
                                         this.state.savingSong
-                                        ?   <Button onClick={()=>this.newSongSubmit()} floating large className='green' waves='light' icon='add' />
+                                        ?   <Button onClick={()=>this.newSongSubmit()} floating large className='green' waves='light' icon='send' />
                                         : this.state.openingSong
-                                            ?   <Button onClick={()=>this.oldSongSubmit()} floating large className='blue' waves='light' icon='add' />
+                                            ?   <Button onClick={()=>this.oldSongSubmit()} floating large className='blue' waves='light' icon='cloud' />
                                             : null
                                     }
                                 </Row>

@@ -11,10 +11,10 @@
   background-color: rgba(0,0,0, 0.5);
 }
 .popup-inner {
-  position: absolute;
+  position: fixed;
   content: center;
-  left: 20em;
-  top: 10em;
+  left: 10%;
+  top: 10%;
   margin: auto;
   background: black;
   padding: 1em;
