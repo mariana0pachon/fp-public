@@ -114,7 +114,7 @@ class App extends Component {
 
   playLoop(){
     this.loadSequence();
-    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/4);
+    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/16);
     this.setState({looping: true});
   }
 
@@ -142,36 +142,36 @@ class App extends Component {
 
   clickEffect=()=>{
     console.log('click function');
-    document.addEventListener("click", function(e){
+    document.addEventListener("mouseover", function(e){
       var gradient = document.getElementById('cover');
       gradient.style.background = 'none';
       gradient.style.backgroundImage = 
         "radial-gradient(ellipse closest-corner at " 
         + e.clientX + "px " + e.clientY 
         + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 50%)";
-      setTimeout(function(){
-      gradient.style.backgroundImage = 
-        "radial-gradient(ellipse closest-corner at " 
-        + e.clientX + "px " + e.clientY 
-        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 40%)";
-      }, 500)
-      setTimeout(function(){
-      gradient.style.backgroundImage = 
-        "radial-gradient(ellipse closest-corner at " 
-        + e.clientX + "px " + e.clientY 
-        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 30%)";
-      }, 1000)
-      setTimeout(function(){
-      gradient.style.backgroundImage = 
-        "radial-gradient(ellipse closest-corner at " 
-        + e.clientX + "px " + e.clientY 
-        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 20%)";
-      }, 1500)
-      setTimeout(function(){
-        gradient.style.background = 'rgba(0,0,0,1)';
-        gradient.style.backgroundImage = '';
-      }, 2000)
-    });
+    //   setTimeout(function(){
+    //   gradient.style.backgroundImage = 
+    //     "radial-gradient(ellipse closest-corner at " 
+    //     + e.clientX + "px " + e.clientY 
+    //     + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 40%)";
+    //   }, 500)
+    //   setTimeout(function(){
+    //   gradient.style.backgroundImage = 
+    //     "radial-gradient(ellipse closest-corner at " 
+    //     + e.clientX + "px " + e.clientY 
+    //     + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 30%)";
+    //   }, 1000)
+    //   setTimeout(function(){
+    //   gradient.style.backgroundImage = 
+    //     "radial-gradient(ellipse closest-corner at " 
+    //     + e.clientX + "px " + e.clientY 
+    //     + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 20%)";
+    //   }, 1500)
+    //   setTimeout(function(){
+    //     gradient.style.background = 'rgba(0,0,0,1)';
+    //     gradient.style.backgroundImage = '';
+    //   }, 2000)
+     });
 
   }
 

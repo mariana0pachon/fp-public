@@ -1,12 +1,12 @@
 .drums {
 	background: #228DFF;
 	box-shadow: 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF;
+  height: 100%;
 }
 
 .bass {
 	background: #ebfdad;
 	box-shadow: 0 0 10px #ebfdad, 0 0 20px #ebfdad, 0 0 30px #ebfdad, 0 0 40px #ebfdad;
-
 }
 
 .synth {

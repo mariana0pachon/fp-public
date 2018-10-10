@@ -18,7 +18,7 @@ class SynthGrid extends Component {
 		let key=0;
 		// Outer loop to create rows
 		for (let i = 0; i < 8; i++){
-			let children = []
+			let children = [];
 			// Inner loop to make td elements
 			for (let j = 0; j < 16; j++){
 				children.push(<td 
@@ -27,7 +27,6 @@ class SynthGrid extends Component {
  				: '' 
  				} 
 				key={key} value={this.props.synthMatrix[i][j]} onClick={()=>this.playSynth(i,j)}>
-				<div className='filledcircle'></div>
 			</td>)
 			key++;
 		}

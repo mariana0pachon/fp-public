@@ -30,7 +30,6 @@ class BassGrid extends Component {
  					: '' 
  					} 
  					key={key} value={this.props.bassMatrix[i][j]} onClick={()=>this.playBass(i,j)}>
- 					<div className='filledcircle'></div>
  				</td>)
  				key++;
  			}

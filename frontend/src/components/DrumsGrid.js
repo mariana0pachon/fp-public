@@ -29,7 +29,6 @@ class DrumsGrid extends Component {
           : '' 
           } 
   				key={key} value={this.props.drumsMatrix[i][j]} onClick={()=>this.playDrums(i,j)}>
-  		    <div className='filledcircle'></div>
   		  </td>)
  				key++;
  			}
