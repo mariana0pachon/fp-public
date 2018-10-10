@@ -176,6 +176,8 @@ class App extends Component {
   }
 
   refresh=()=>{
+
+    // for some reason this does not work when the array is a constant ?
     this.setState({
       drumsMatrix : [
         [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
