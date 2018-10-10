@@ -78,32 +78,32 @@ class App extends Component {
 
       //drums
       let drums=[];
-      if (this.state.drumsMatrix[0][i]){drums.push(16);}
+      if (this.state.drumsMatrix[0][i]){drums.push(2);}
       if (this.state.drumsMatrix[1][i]){drums.push(17);}
-      if (this.state.drumsMatrix[2][i]){drums.push(18);}
-      if (this.state.drumsMatrix[3][i]){drums.push(19);}
+      if (this.state.drumsMatrix[2][i]){drums.push(56);}
+      if (this.state.drumsMatrix[3][i]){drums.push(35);}
 
       //synth
-     let synths=[130, [], 2.5];
+     let synths=[837, [], 0.08];
       if (this.state.synthMatrix[0][i]){synths[1].push(72)}
-      if (this.state.synthMatrix[1][i]){synths[1].push(71)}
-      if (this.state.synthMatrix[2][i]){synths[1].push(69)}
-      if (this.state.synthMatrix[3][i]){synths[1].push(67)}
+      if (this.state.synthMatrix[1][i]){synths[1].push(70)}
+      if (this.state.synthMatrix[2][i]){synths[1].push(67)}
+      if (this.state.synthMatrix[3][i]){synths[1].push(66)}
       if (this.state.synthMatrix[4][i]){synths[1].push(65)}
-      if (this.state.synthMatrix[5][i]){synths[1].push(64)}
-      if (this.state.synthMatrix[6][i]){synths[1].push(62)}
-      if (this.state.synthMatrix[7][i]){synths[1].push(60)}
+      if (this.state.synthMatrix[5][i]){synths[1].push(63)}
+      if (this.state.synthMatrix[6][i]){synths[1].push(60)}
+      if (this.state.synthMatrix[7][i]){synths[1].push(58)}
 
       // bass
-      let bajos=[20, [], 2.5];
-       if (this.state.bassMatrix[0][i]){bajos[1].push(72)}
-       if (this.state.bassMatrix[1][i]){bajos[1].push(71)}
-       if (this.state.bassMatrix[2][i]){bajos[1].push(69)}
-       if (this.state.bassMatrix[3][i]){bajos[1].push(67)}
-       if (this.state.bassMatrix[4][i]){bajos[1].push(65)}
-       if (this.state.bassMatrix[5][i]){bajos[1].push(64)}
-       if (this.state.bassMatrix[6][i]){bajos[1].push(62)}
-       if (this.state.bassMatrix[7][i]){bajos[1].push(60)}
+      let bajos=[436, [], 0.07];
+       if (this.state.bassMatrix[0][i]){bajos[1].push(48)}
+       if (this.state.bassMatrix[1][i]){bajos[1].push(46)}
+       if (this.state.bassMatrix[2][i]){bajos[1].push(43)}
+       if (this.state.bassMatrix[3][i]){bajos[1].push(42)}
+       if (this.state.bassMatrix[4][i]){bajos[1].push(41)}
+       if (this.state.bassMatrix[5][i]){bajos[1].push(39)}
+       if (this.state.bassMatrix[6][i]){bajos[1].push(36)}
+       if (this.state.bassMatrix[7][i]){bajos[1].push(34)}
       
       //push everything
       song.push(drums, [synths, bajos]);
@@ -114,8 +114,8 @@ class App extends Component {
 
   playLoop(){
     this.loadSequence();
-    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/16);
     this.setState({looping: true});
+    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/16);
   }
 
   stopLoop(){
@@ -141,7 +141,6 @@ class App extends Component {
   }
 
   clickEffect=()=>{
-    console.log('click function');
     document.addEventListener("mouseover", function(e){
       var gradient = document.getElementById('cover');
       gradient.style.background = 'none';
@@ -211,6 +210,22 @@ class App extends Component {
       ],
     });
     this.loadSequence();
+  }
+
+
+  onSoundTrigger(){
+    console.log('in the sound trigger function');
+    let times = [];
+    for (let i=0; i<8; i++){
+      for (let j=0; j<16; j++){
+        if(this.state.drumsMatrix[i][j]){
+          times.push(j*(60/this.bpm))
+        }
+      }
+    }
+    //times.forEach(time => {
+      setTimeout(console.log('time ' + times[0]), times[0]);
+    //})
   }
 
 
