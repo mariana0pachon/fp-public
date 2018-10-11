@@ -9,8 +9,16 @@ class Visualize1 extends Component {
 
   render() {
     const {beat}=this.props;
+	let style = { 
+		animationName: 'pop',
+		animationIterationCount: '1',
+		animationTimingFunction: 'ease-out',
+		animationDuration: 1.5 + 's',
+		animationFillMode: 'forwards',
+		marginLeft: beat
+	};
     return (
-      <div className="loader" style={{'margin-left': beat}}>
+      <div className="loader" id='poofy1' style={{margin_left : beat}}>
         <span className="loader__inner"></span>
         <span className="loader__inner"></span>
       </div>

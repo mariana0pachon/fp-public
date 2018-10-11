@@ -221,7 +221,14 @@ class App extends Component {
       if(currentInstruction !== 0){
         this.createVis(currentInstruction);
         if (currentInstruction===1){
-          this.createViz1();
+          //this.createViz1();
+		  console.log("Should be poofing");
+		  var thisVis = document.getElementById('poofy1');
+		  thisVis.className += ' poof';
+			setTimeout( function() {
+				thisVis.classList.remove('poof');
+			}, 1500 )
+		  
         }
       }
       if (currentBeat===16){
@@ -297,11 +304,7 @@ class App extends Component {
         {
           <div id='cover' className=''></div>
         }
-        {
-          (this.state.viz1)
-          ? this.createViz1()
-          : null
-        }
+		<Visualize1/>
       </div>
     );
   }

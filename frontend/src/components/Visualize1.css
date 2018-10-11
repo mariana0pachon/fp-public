@@ -15,6 +15,7 @@
 .loader {
   width: var(--size);
   height: var(--size);
+  opacity: 0;
 }
 
 .loader__inner {
@@ -36,6 +37,11 @@
     0 10px 0 0 rgba(103,58,183, .6);
   animation: rotate__other var(--speed) linear infinite;
 }
+
+.poof {
+	animation-iteration-count: 1;
+	animation: pop 1.5s ease-out;
+}
 @keyframes rotate {
   50% {
     transform: scale(1.4) rotate(360deg);
@@ -51,5 +57,17 @@
   }
   100% {
     transform: scale(1) rotate(-720deg);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
