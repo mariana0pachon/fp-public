@@ -294,9 +294,8 @@ class App extends Component {
                 : null
           }
         </div>
-        {
           <div id='cover' className=''></div>
-        }
+           <Visualize1/>
         {
           (this.state.viz1)
           ? this.createViz1()

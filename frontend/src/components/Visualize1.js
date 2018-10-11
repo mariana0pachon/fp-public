@@ -8,11 +8,13 @@ class Visualize1 extends Component {
   }
 
   render() {
-    const {beat}=this.props;
     return (
-      <div className="loader" style={{'margin-left': beat}}>
-        <span className="loader__inner"></span>
-        <span className="loader__inner"></span>
+      <div className='layout'>
+        <div className="loader" >
+          <span className="loader__inner"></span>
+          <span className="loader__inner"></span>
+          <span className='loader__inner'></span>
+        </div>
       </div>
     );
   }

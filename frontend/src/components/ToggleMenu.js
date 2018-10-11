@@ -38,7 +38,8 @@ class ToggleMenu extends Component {
     newSongSubmit(){
         if (this.state.songTitle !== undefined && this.state.songTitle !== ''){
             this.cancel()
-            fetch('http://localhost:3000/save', {
+
+            fetch('https://intense-cove-30974.herokuapp.com/save', {
                 method: 'post', 
                 headers: {'Content-Type': 'application/json'}, 
                 body: JSON.stringify({
@@ -59,12 +60,13 @@ class ToggleMenu extends Component {
         else {
             alert("Please enter a valid title for your new song.");
         } 
+        this.setState({songTitle: ''});
     }
 
     oldSongSubmit(){
         if (this.state.songTitle !== undefined && this.state.songTitle !== ''){
             this.cancel();
-            fetch('http://localhost:3000/load', {
+            fetch('https://intense-cove-30974.herokuapp.com/load', {
                 method: 'post', 
                 headers: {'Content-Type': 'application/json'}, 
                 body: JSON.stringify({
@@ -80,6 +82,7 @@ class ToggleMenu extends Component {
         else {
             alert("Please enter a valid title for the song you wish to listen to.");
         } 
+        this.setState({songTitle: ''});
     }
 
     refresh () {
@@ -104,7 +107,7 @@ class ToggleMenu extends Component {
                     ?   <div className='popup'>
                             <div className='popup-inner'>
                                 <Row>
-                                    <Input onChange={this.onTitleChange} label="Song title" />
+                                    <Input style={{color: 'white'}}onChange={this.onTitleChange} label="Song title" />
                                     <Button onClick={()=>this.cancel()} floating large className='red' waves='light' icon='delete' />
                                     {
                                         this.state.savingSong
