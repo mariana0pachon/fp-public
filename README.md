@@ -16,7 +16,8 @@ To run locally:
 - `npm start`
 
 ## Technical Achievements 
-- Used React
+- Used React and Express 
+	- Backend code: https://github.com/mariana0pachon/fp-backend
 - Created a matrix for music generation that triggers sound and its visualizations
 - Data persistency: gave the user the chance to save a song and be able to access it in the future
 - A lot of math to calculate proper timings and behaviors that would be used eventually to trigger sounds as well as visualizations:
