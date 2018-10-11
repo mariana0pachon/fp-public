@@ -1,6 +1,6 @@
 :root {
 	--size: 30%;
-	--speed: 5s;
+	--speed: 2s;
 }
 
 .layout {
@@ -11,12 +11,12 @@
 	margin-top: 10%;
 }
 
-.circle {
+.viz3 {
 	width: var(--size);
 	height: var(--size);
 }
 
-.circle-inner {
+.viz3-inner {
 	position: absolute;
 	display: block;
 	width: var(--size);
@@ -25,13 +25,13 @@
 	box-shadow: 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF;
 	animation: rotate var(--speed) linear infinite;
 }
-.circle-inner:nth-child(2) {
+.viz3-inner:nth-child(2) {
 	box-shadow: 0 0 10px #ebfdad, 0 0 20px #ebfdad, 0 0 30px #ebfdad, 0 0 40px #ebfdad;
 	animation: rotate__other var(--speed) linear infinite;
 }
-.circle-inner:nth-child(3) {
+.viz3-inner:nth-child(3) {
 	box-shadow: 0 0 10px #fb34d5, 0 0 20px #fb34d5, 0 0 30px #fb34d5, 0 0 40px #fb34d5;
-	animation: rotate__other__other var(--speed) linear infinite;
+	animation: rotate__other var(--speed) linear infinite;
 }
 
 @keyframes rotate {

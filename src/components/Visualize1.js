@@ -10,10 +10,10 @@ class Visualize1 extends Component {
   render() {
     return (
       <div className='layout'>
-        <div className="loader" >
-          <span className="loader__inner"></span>
-          <span className="loader__inner"></span>
-          <span className='loader__inner'></span>
+        <div className="circle" >
+          <span className="circle-inner"></span>
+          <span className="circle-inner"></span>
+          <span className='circle-inner'></span>
         </div>
       </div>
     );

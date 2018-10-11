@@ -7,6 +7,9 @@ import DrumsGrid from './components/DrumsGrid';
 import BassGrid from './components/BassGrid';
 import VerticalLine from './components/VerticalLine';
 import Visualize1 from './components/Visualize1';
+import Visualize2 from './components/Visualize2';
+import Visualize3 from './components/Visualize3';
+import Visualize4 from './components/Visualize4';
 
 
 class App extends Component {
@@ -296,6 +299,9 @@ class App extends Component {
         </div>
           <div id='cover' className=''></div>
            <Visualize1/>
+           <Visualize2/>
+           <Visualize3/>
+           <Visualize4/>
         {
           (this.state.viz1)
           ? this.createViz1()
