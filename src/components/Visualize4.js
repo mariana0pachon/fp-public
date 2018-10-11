@@ -10,10 +10,10 @@ class Visualize4 extends Component {
   render() {
     return (
       <div className='layout'>
-        <div className="viz4" >
-          <span className="viz4-inner"></span>
-          <span className="viz4-inner"></span>
-          <span className='viz4-inner'></span>
+        <div className="egg" id='viz4'>
+          <span className="egg-inner"></span>
+          <span className="egg-inner"></span>
+          <span className='egg-inner'></span>
         </div>
       </div>
     );

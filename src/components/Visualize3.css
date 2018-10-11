@@ -1,6 +1,6 @@
 :root {
-	--size: 30%;
-	--speed: 2s;
+	--size: 40%;
+	--speed: 5s;
 }
 
 .layout {
@@ -9,27 +9,28 @@
 	align-items: center;
 	pointer-events: none;
 	margin-top: 10%;
+	margin-top:10%;
 }
 
-.viz3 {
+.third {
 	width: var(--size);
 	height: var(--size);
+	opacity: 0;
 }
 
-.viz3-inner {
+.third-inner {
 	position: absolute;
 	display: block;
 	width: var(--size);
 	height: var(--size);
-	border-radius: 50%;
 	box-shadow: 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF;
 	animation: rotate var(--speed) linear infinite;
 }
-.viz3-inner:nth-child(2) {
+.third-inner:nth-child(2) {
 	box-shadow: 0 0 10px #ebfdad, 0 0 20px #ebfdad, 0 0 30px #ebfdad, 0 0 40px #ebfdad;
 	animation: rotate__other var(--speed) linear infinite;
 }
-.viz3-inner:nth-child(3) {
+.third-inner:nth-child(3) {
 	box-shadow: 0 0 10px #fb34d5, 0 0 20px #fb34d5, 0 0 30px #fb34d5, 0 0 40px #fb34d5;
 	animation: rotate__other var(--speed) linear infinite;
 }
@@ -59,4 +60,20 @@
 	100% {
 		transform: scale(1) rotate(-360deg);
 	}
+}
+
+.viz3 {
+  animation-iteration-count: 1;
+  animation: pop 0.5s ease-out;
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -1,5 +1,5 @@
 :root {
-	--size: 30%;
+	--size: 40%;
 	--speed: 5s;
 }
 
@@ -14,14 +14,15 @@
 .square {
 	width: var(--size);
 	height: var(--size);
+	opacity: 0;
 }
 
 .square-inner {
 	position: absolute;
 	display: block;
 	width: var(--size);
-	height: var(--size);
-	border-radius: 10%;
+	height: 20%;
+	border-radius: 45%;
 	box-shadow: 0 0 10px #228DFF, 0 0 20px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF;
 	animation: rotate var(--speed) linear infinite;
 }
@@ -59,4 +60,20 @@
 	100% {
 		transform: scale(1) rotate(-360deg);
 	}
+}
+
+.viz2 {
+  animation-iteration-count: 1;
+  animation: pop 0.5s ease-out;
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

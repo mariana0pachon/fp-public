@@ -10,7 +10,7 @@ class Visualize2 extends Component {
   render() {
     return (
       <div className='layout'>
-        <div className="square" >
+        <div className="square" id='viz2'>
           <span className="square-inner"></span>
           <span className="square-inner"></span>
           <span className='square-inner'></span>

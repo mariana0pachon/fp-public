@@ -1,3 +1,11 @@
+.vizLayout{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2%;
+}
+
 .my-table {
   position: absolute;
   top:13%;

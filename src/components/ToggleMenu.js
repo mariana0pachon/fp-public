@@ -94,8 +94,7 @@ class ToggleMenu extends Component {
             <div>
                 <nav className="nav-extended black">
                     <div className='tabs tabs-transparent'>
-                        <div onClick={()=>this.refresh()} className="material-icons neon" style={{'margin': '.5em', top: '0px', left: '0px', position: 'absolute'}}>refresh</div>
-                        <p className='tab neon' style={{'marginLeft': '10%'}}onClick={()=>this.changeGrid('drums')}><a>drums</a></p>
+                        <p className='tab neon' onClick={()=>this.changeGrid('drums')}><a>drums</a></p>
                         <p className='tab neon' onClick={()=>this.changeGrid('synth')}><a>synth</a></p>
                         <p className='tab neon' onClick={()=>this.changeGrid('bass')}><a>bass</a></p>
                         <p className='tab neon' onClick={()=>this.saveSong()}><a>save</a></p>

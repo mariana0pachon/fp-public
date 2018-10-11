@@ -10,10 +10,10 @@ class Visualize3 extends Component {
   render() {
     return (
       <div className='layout'>
-        <div className="viz3" >
-          <span className="viz3-inner"></span>
-          <span className="viz3-inner"></span>
-          <span className='viz3-inner'></span>
+        <div className="third" id='viz3'>
+          <span className="third-inner"></span>
+          <span className="third-inner"></span>
+          <span className='third-inner'></span>
         </div>
       </div>
     );

@@ -17,9 +17,9 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      viz1:false, 
-      viz2: false, 
-      viz4: false, 
+      viz1:false,
+      viz2: false,
+      viz4: false,
       viz8: false,
       visInstructions: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       looping: false,
@@ -79,7 +79,7 @@ class App extends Component {
     visTemp[j] = visCmd;
 
     this.setState({
-      drumsMatrix : temp, 
+      drumsMatrix : temp,
       visInstructions: visTemp,
     });
     this.loadSequence();
@@ -125,7 +125,7 @@ class App extends Component {
        if (this.state.bassMatrix[5][i]){bajos[1].push(39)}
        if (this.state.bassMatrix[6][i]){bajos[1].push(36)}
        if (this.state.bassMatrix[7][i]){bajos[1].push(34)}
-      
+
       //push everything
       song.push(drums, [synths, bajos]);
 
@@ -155,8 +155,8 @@ class App extends Component {
 
   loadSong=(drums, bass, synth)=> {
     this.setState({
-      drumsMatrix: drums, 
-      bassMatrix: bass, 
+      drumsMatrix: drums,
+      bassMatrix: bass,
       synthMatrix: synth
     });
     this.loadSequence();
@@ -166,9 +166,9 @@ class App extends Component {
   //   document.addEventListener("mouseover", function(e){
   //     var gradient = document.getElementById('cover');
   //     gradient.style.background = 'none';
-  //     gradient.style.backgroundImage = 
-  //       "radial-gradient(ellipse closest-corner at " 
-  //       + e.clientX + "px " + e.clientY 
+  //     gradient.style.backgroundImage =
+  //       "radial-gradient(ellipse closest-corner at "
+  //       + e.clientX + "px " + e.clientY
   //       + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 50%)";
   //    });
   // }
@@ -222,15 +222,70 @@ class App extends Component {
       let currentInstruction = this.state.visInstructions[currentBeat-1];
 
       if(currentInstruction !== 0){
-        this.createVis(currentInstruction);
-        if (currentInstruction===1){
-          this.createViz1();
+        //this.createVis(currentInstruction);
+        if(currentInstruction===1){
+                      var thisVis = document.getElementById('viz1');
+           thisVis.className += ' viz1';
+           setTimeout( function() {
+            thisVis.classList.remove('viz1');
+           }, 1.5*1000*60/this.bpm )
         }
-      }
-      if (currentBeat===16){
-        this.resetVis();
-      }
+        else if (currentInstruction===2){
+           var thisVis = document.getElementById('viz2');
+          thisVis.className += ' viz2';
+          setTimeout( function() {
+           thisVis.classList.remove('viz2');
+          }, 1.5*1000*60/this.bpm )
+        }
+        else if (currentInstruction===4){
+                      var thisVis = document.getElementById('viz3');
+           thisVis.className += ' viz3';
+           setTimeout( function() {
+            thisVis.classList.remove('viz3');
+           }, 1.5*1000*60/this.bpm )
+        }
+        else if(currentInstruction===8){
+           var thisVis = document.getElementById('viz4');
+           thisVis.className += ' viz4';
+           setTimeout( function() {
+            thisVis.classList.remove('viz4');
+           }, 1.5*1000*60/this.bpm )
+        }
 
+        else {
+          if (currentInstruction>0 && currentInstruction<5) {
+            var thisVis = document.getElementById('viz1');
+  	   	   thisVis.className += ' viz1';
+  		  	 setTimeout( function() {
+  				  thisVis.classList.remove('viz1');
+  			   }, 1.5*1000*60/this.bpm )
+          }
+
+          if (currentInstruction>4 && currentInstruction<9) {
+            var thisVis = document.getElementById('viz2');
+           thisVis.className += ' viz2';
+           setTimeout( function() {
+            thisVis.classList.remove('viz2');
+           }, 1.5*1000*60/this.bpm )
+          }
+
+          if (currentInstruction>8 && currentInstruction<13) {
+            var thisVis = document.getElementById('viz3');
+           thisVis.className += ' viz3';
+           setTimeout( function() {
+            thisVis.classList.remove('viz3');
+           },1.5*1000*60/this.bpm )
+          }
+
+          if (currentInstruction>12 && currentInstruction<17) {
+            var thisVis = document.getElementById('viz4');
+           thisVis.className += ' viz4';
+           setTimeout( function() {
+            thisVis.classList.remove('viz4');
+           }, 1.5*1000*60/this.bpm )
+          }
+      }
+      }
     }, interval);
   }
 
@@ -239,7 +294,7 @@ class App extends Component {
       case 1:
         this.setState({viz1: true});
         break;
-      case 2: 
+      case 2:
         this.setState({viz2: true});
         break;
       case 4:
@@ -253,26 +308,12 @@ class App extends Component {
     }
   }
 
-  resetVis=()=>{
-    this.setState({
-      viz1: false, 
-      viz2: false, 
-      viz3: false, 
-      viz4: false,
-    })
-  }
-
-  createViz1=()=> {
-    console.log('called createViz1')
-    return <Visualize1/>;
-  }
-
   render() {
 
     return (
       <div id='App'>
-        <ToggleMenu 
-          drums={this.state.drumsMatrix} 
+        <ToggleMenu
+          drums={this.state.drumsMatrix}
           synth={this.state.synthMatrix}
           bass={this.state.bassMatrix}
           loadSong={this.loadSong}
@@ -288,25 +329,21 @@ class App extends Component {
           {
             (this.state.currentGrid === 'synth')
             ? <SynthGrid synthMatrix={this.state.synthMatrix} playSynth={this.playSynth}/>
-            : 
+            :
               (this.state.currentGrid === 'drums')
               ? <DrumsGrid drumsMatrix={this.state.drumsMatrix} playDrums={this.playDrums}/>
-              : 
+              :
                 (this.state.currentGrid === 'bass')
                 ? <BassGrid bassMatrix={this.state.bassMatrix} playBass={this.playBass}/>
                 : null
           }
         </div>
-          <div id='cover' className=''></div>
-           <Visualize1/>
-           <Visualize2/>
-           <Visualize3/>
-           <Visualize4/>
-        {
-          (this.state.viz1)
-          ? this.createViz1()
-          : null
-        }
+        <div className='vizLayout'>
+          <Visualize1 />
+          <Visualize2 />
+          <Visualize4 />
+          <Visualize3 />
+        </div>
       </div>
     );
   }
