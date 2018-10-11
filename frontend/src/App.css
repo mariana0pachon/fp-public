@@ -1,4 +1,4 @@
-table {
+.my-table {
   position: absolute;
   top:13%;
   bottom:0;
@@ -6,25 +6,24 @@ table {
   right:0;
   overflow: hidden;
 }
-td {
-  border: .5px solid grey;
+.my-td {
   border-top-color: transparent;
   background-color: transparent;
 }
-td::after {
+.my-td::after {
   content: '';
   display: block;
   margin-top: 70%;
 }
-td:first-of-type {
+.my-td:first-of-type {
   border-left-color: transparent;
   border-top-color: transparent;
 }
-td:last-of-type {
+.my-td:last-of-type {
   border-right-color: transparent;
   border-top-color: transparent;
 }
-tr:last-of-type td {
+.my-tr:last-of-type .my-td{
   border-bottom-color: transparent;
 }
 
@@ -47,7 +46,7 @@ tr:last-of-type td {
 	}
 }
 
-.gradient {
+/*.gradient {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -56,5 +55,18 @@ tr:last-of-type td {
   bottom: 0;
   cursor: none;
   background: rgba(0,0,0,1);
+  pointer-events: none;
+}
+*/
+
+.vis1 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 6%;
+  left: 0;
+  bottom: 0;
+  cursor: none;
+  background: red;
   pointer-events: none;
 }

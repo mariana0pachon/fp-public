@@ -6,7 +6,7 @@ class VerticalLine extends Component {
     super(props);
     this.state = {
     	// 16 * length in s of one beat in that bpm
-		time : 4*(60/this.props.bpm),
+		time : 16*(60/this.props.bpm),
 
     }
   }

@@ -23,14 +23,14 @@ class SynthGrid extends Component {
 			for (let j = 0; j < 16; j++){
 				children.push(<td 
           		className={this.props.synthMatrix[i][j] 
-         		? 'synth neon' 
- 				: '' 
+         		? 'synth neon my-td' 
+ 				: 'my-td' 
  				} 
 				key={key} value={this.props.synthMatrix[i][j]} onClick={()=>this.playSynth(i,j)}>
 			</td>)
 			key++;
 		}
-			table.push(<tr key={key}>{children}</tr>)
+			table.push(<tr className='my-tr'key={key}>{children}</tr>)
 		}
 		return table;
 	}
@@ -39,7 +39,7 @@ class SynthGrid extends Component {
     return (
       <div>
 
-		<table>
+		<table className='my-table'>
 			<tbody>
 				{this.createTable()}
 			</tbody>

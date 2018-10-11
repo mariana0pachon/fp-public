@@ -26,14 +26,14 @@ class BassGrid extends Component {
 
  				children.push(<td 
           className={this.props.bassMatrix[i][j] 
-          ? 'bass neon' 
- 					: '' 
+          ? 'bass neon my-td' 
+ 					: 'my-td' 
  					} 
  					key={key} value={this.props.bassMatrix[i][j]} onClick={()=>this.playBass(i,j)}>
  				</td>)
  				key++;
  			}
-      table.push(<tr key={key}>{children}</tr>)
+      table.push(<tr className='my-tr'key={key}>{children}</tr>)
  		}
  		return table;
  	}
@@ -42,7 +42,7 @@ class BassGrid extends Component {
     return (
       <div>
 
-		<table>
+		<table className='my-table'>
 			<tbody>
 				{this.createTable()}
 			</tbody>

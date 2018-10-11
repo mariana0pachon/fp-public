@@ -25,14 +25,14 @@ class DrumsGrid extends Component {
 
  				children.push(<td 
           className={this.props.drumsMatrix[i][j] 
-          ? 'drums neon' 
-          : '' 
+          ? 'drums neon my-td' 
+          : 'my-td' 
           } 
   				key={key} value={this.props.drumsMatrix[i][j]} onClick={()=>this.playDrums(i,j)}>
   		  </td>)
  				key++;
  			}
- 			table.push(<tr key={key}>{children}</tr>)
+ 			table.push(<tr className='my-tr'key={key}>{children}</tr>)
  		}
  		return table;
  	}
@@ -41,7 +41,7 @@ class DrumsGrid extends Component {
     return (
       <div>
 
-		<table>
+		<table className='my-table'>
 			<tbody>
 				{this.createTable()}
 			</tbody>

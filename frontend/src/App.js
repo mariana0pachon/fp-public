@@ -6,6 +6,7 @@ import SynthGrid from './components/SynthGrid';
 import DrumsGrid from './components/DrumsGrid';
 import BassGrid from './components/BassGrid';
 import VerticalLine from './components/VerticalLine';
+import Visualize1 from './components/Visualize1';
 
 
 class App extends Component {
@@ -13,6 +14,11 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      viz1:false, 
+      viz2: false, 
+      viz4: false, 
+      viz8: false,
+      visInstructions: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
       looping: false,
       currentGrid: 'drums',
       drumsMatrix : [
@@ -47,7 +53,7 @@ class App extends Component {
       ],
     }
     this.song=[];
-    this.bpm=120;
+    this.bpm=128;
   }
 
    playSynth=(i,j)=>  {
@@ -58,9 +64,21 @@ class App extends Component {
   }
 
  playDrums=(i,j)=>  {
+  let visCmd = 0;
     var temp = this.state.drumsMatrix;
     temp[i][j] = !temp[i][j];
-    this.setState({drumsMatrix : temp});
+    for (let y=0; y<4; y++){
+      if(this.state.drumsMatrix[y][j]){
+        visCmd |= 1 << y;
+      }
+    }
+    var visTemp = this.state.visInstructions;
+    visTemp[j] = visCmd;
+
+    this.setState({
+      drumsMatrix : temp, 
+      visInstructions: visTemp,
+    });
     this.loadSequence();
   }
 
@@ -115,7 +133,7 @@ class App extends Component {
   playLoop(){
     this.loadSequence();
     this.setState({looping: true});
-    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/16);
+    this.midiSounds.startPlayLoop(this.song, this.bpm, 1/4);
   }
 
   stopLoop(){
@@ -125,6 +143,7 @@ class App extends Component {
 
   componentDidMount(){
     this.playLoop();
+    this.onSoundTrigger();
   }
 
   changeGrid=(grid)=>{
@@ -140,39 +159,16 @@ class App extends Component {
     this.loadSequence();
   }
 
-  clickEffect=()=>{
-    document.addEventListener("mouseover", function(e){
-      var gradient = document.getElementById('cover');
-      gradient.style.background = 'none';
-      gradient.style.backgroundImage = 
-        "radial-gradient(ellipse closest-corner at " 
-        + e.clientX + "px " + e.clientY 
-        + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 50%)";
-    //   setTimeout(function(){
-    //   gradient.style.backgroundImage = 
-    //     "radial-gradient(ellipse closest-corner at " 
-    //     + e.clientX + "px " + e.clientY 
-    //     + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 40%)";
-    //   }, 500)
-    //   setTimeout(function(){
-    //   gradient.style.backgroundImage = 
-    //     "radial-gradient(ellipse closest-corner at " 
-    //     + e.clientX + "px " + e.clientY 
-    //     + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 30%)";
-    //   }, 1000)
-    //   setTimeout(function(){
-    //   gradient.style.backgroundImage = 
-    //     "radial-gradient(ellipse closest-corner at " 
-    //     + e.clientX + "px " + e.clientY 
-    //     + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 20%)";
-    //   }, 1500)
-    //   setTimeout(function(){
-    //     gradient.style.background = 'rgba(0,0,0,1)';
-    //     gradient.style.backgroundImage = '';
-    //   }, 2000)
-     });
-
-  }
+  // clickEffect=()=>{
+  //   document.addEventListener("mouseover", function(e){
+  //     var gradient = document.getElementById('cover');
+  //     gradient.style.background = 'none';
+  //     gradient.style.backgroundImage = 
+  //       "radial-gradient(ellipse closest-corner at " 
+  //       + e.clientX + "px " + e.clientY 
+  //       + "px , rgba(0,0,0,0) 0%, rgba(0,0,0,.9) 50%)";
+  //    });
+  // }
 
   refresh=()=>{
 
@@ -212,27 +208,66 @@ class App extends Component {
     this.loadSequence();
   }
 
-
   onSoundTrigger(){
-    console.log('in the sound trigger function');
-    let times = [];
-    for (let i=0; i<8; i++){
-      for (let j=0; j<16; j++){
-        if(this.state.drumsMatrix[i][j]){
-          times.push(j*(60/this.bpm))
+
+    let interval = 1000*60/this.bpm;
+
+    setInterval(()=> {
+      let currentTime = this.midiSounds.contextTime();
+      let currentBeat = Math.floor((currentTime%(16*60/this.bpm))/(60/this.bpm)+ 1);
+
+      let currentInstruction = this.state.visInstructions[currentBeat-1];
+
+      if(currentInstruction !== 0){
+        this.createVis(currentInstruction);
+        if (currentInstruction===1){
+          this.createViz1();
         }
       }
-    }
-    //times.forEach(time => {
-      setTimeout(console.log('time ' + times[0]), times[0]);
-    //})
+      if (currentBeat===16){
+        this.resetVis();
+      }
+
+    }, interval);
   }
 
+  createVis=(instruction)=>{
+    switch(instruction){
+      case 1:
+        this.setState({viz1: true});
+        break;
+      case 2: 
+        this.setState({viz2: true});
+        break;
+      case 4:
+        this.setState({viz4: true});
+        break;
+      case 8:
+        this.setState({viz8: true});
+        break;
+      default:
+        break;
+    }
+  }
+
+  resetVis=()=>{
+    this.setState({
+      viz1: false, 
+      viz2: false, 
+      viz3: false, 
+      viz4: false,
+    })
+  }
+
+  createViz1=()=> {
+    console.log('called createViz1')
+    return <Visualize1/>;
+  }
 
   render() {
 
     return (
-      <div>
+      <div id='App'>
         <ToggleMenu 
           drums={this.state.drumsMatrix} 
           synth={this.state.synthMatrix}
@@ -240,7 +275,7 @@ class App extends Component {
           loadSong={this.loadSong}
           refresh={this.refresh}
           changeGrid={this.changeGrid}/>
-        <div onClick={this.clickEffect}>
+        <div>
           {
             this.state.looping
             ? <VerticalLine bpm={this.bpm}/>
@@ -259,8 +294,14 @@ class App extends Component {
                 : null
           }
         </div>
-        <div id='cover' className=''></div>
-        {this.playLoop.bind(this)}
+        {
+          <div id='cover' className=''></div>
+        }
+        {
+          (this.state.viz1)
+          ? this.createViz1()
+          : null
+        }
       </div>
     );
   }
