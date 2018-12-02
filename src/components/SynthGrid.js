@@ -4,9 +4,6 @@ class SynthGrid extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-
-    }
   }
  	
  	playSynth(i, j) {
@@ -38,13 +35,11 @@ class SynthGrid extends Component {
   render() {
     return (
       <div>
-
 		<table className='my-table'>
 			<tbody>
 				{this.createTable()}
 			</tbody>
 		</table>
-
       </div>
     );
   }

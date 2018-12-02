@@ -35,8 +35,6 @@
   animation: rotate__other var(--speed) linear infinite;
 }
 
-
-
 @keyframes rotate {
   50% {
     transform: scale(1.4) rotate(360deg);

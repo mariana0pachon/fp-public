@@ -4,10 +4,6 @@ class DrumsGrid extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-
-    }
-
   }
  	
  	playDrums(i, j) {
@@ -40,13 +36,11 @@ class DrumsGrid extends Component {
   render() {
     return (
       <div>
-
-		<table className='my-table'>
-			<tbody>
-				{this.createTable()}
-			</tbody>
-		</table>
-
+    		<table className='my-table'>
+    			<tbody>
+    				{this.createTable()}
+    			</tbody>
+    		</table>
       </div>
     );
   }

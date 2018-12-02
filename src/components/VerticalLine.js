@@ -6,8 +6,7 @@ class VerticalLine extends Component {
     super(props);
     this.state = {
     	// 16 * length in s of one beat in that bpm
-		time : 16*(60/this.props.bpm),
-
+		  time : 16*(60/this.props.bpm),
     }
   }
 
@@ -21,7 +20,7 @@ class VerticalLine extends Component {
 	};
     return (
       <div>
-		<div style={ style } className='line neon'></div>
+		    <div style={ style } className='line neon'></div>
       </div>
     );
   }

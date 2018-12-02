@@ -5,10 +5,6 @@ class BassGrid extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-
-    }
-
   }
  	
  	playBass(i, j) {
@@ -41,13 +37,11 @@ class BassGrid extends Component {
   render() {
     return (
       <div>
-
-		<table className='my-table'>
-			<tbody>
-				{this.createTable()}
-			</tbody>
-		</table>
-
+		    <table className='my-table'>
+          <tbody>
+				    {this.createTable()}
+          </tbody>
+		    </table>
       </div>
     );
   }

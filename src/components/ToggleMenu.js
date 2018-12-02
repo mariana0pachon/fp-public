@@ -13,28 +13,34 @@ class ToggleMenu extends Component {
         }
     }
 
+    // change the instrument grid
     changeGrid (grid){
         this.props.changeGrid(grid);
     }
 
+    // change state of savingSong for post request later
     saveSong (){
         this.setState({savingSong: true});
-
     }
 
+    // change state of openingSong for post request later
     openSong(){
         this.setState({openingSong: true});
     }
 
+    // change state of saving and opening to go back to normal
     cancel(){
         this.setState({savingSong: false});
         this.setState({openingSong: false});
     }
 
+    // event for when the title of the song is chosen
     onTitleChange = (event) => {
         this.setState({songTitle: event.target.value});
     }
 
+    // does post request to the server to save the song in the database
+    // stores title (string), states of all instruments (arrays of arrays)
     newSongSubmit(){
         if (this.state.songTitle !== undefined && this.state.songTitle !== ''){
             this.cancel()
@@ -63,6 +69,8 @@ class ToggleMenu extends Component {
         this.setState({songTitle: ''});
     }
 
+    // does post request to the server to get a song in the database
+    // takes title (string), returns states of all instruments (arrays of arrays)
     oldSongSubmit(){
         if (this.state.songTitle !== undefined && this.state.songTitle !== ''){
             this.cancel();
